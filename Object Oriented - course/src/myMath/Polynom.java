@@ -22,14 +22,14 @@ public class Polynom implements Polynom_able{
 	/**
 	 * A default constructor
 	 */
-	public Polynom() {
+	public Polynom() { // the array(polynom) constructor
 		Polynom = new ArrayList<>();
 	}
 	/**
 	 * Copy consructor
 	 * @param p The Polynom that we need to copy from. 
 	 */
-	public Polynom(Polynom p) {
+	public Polynom(Polynom p) { // copy constructor
 		Polynom = new ArrayList<>(); 
 		Iterator<Monom> it = p.iteretor();
 		while(it.hasNext()) {
@@ -45,29 +45,31 @@ public class Polynom implements Polynom_able{
 	 * param s1 - we'll be converted to co.
 	 * param pow - a power
 	 * param s2 - we'll be converted to pow.
+	 * param j - will help us determine the index of the x and ths '*'
 	 */
-	public Polynom(String s) {
+	public Polynom(String s) { // String constructor
 		Polynom = new ArrayList<>();
-		s=s.replaceAll("\\s","");
+		s=s.replaceAll("\\s","");// replacing all unnecessary chars
 		s=s.replaceAll("\\)","");
 		s=s.replaceAll("\\(","");
-		String[] ps = s.split(Pattern.quote("+"));
+		String[] ps = s.split(Pattern.quote("+"));//Dividing between the '+' to a strings array 
 		int i=0;
 		while(i<ps.length) {
 			double co=0;
 			int pow=0;
-			String s1;
-			String s2;
+			String s1;//represents the coefficient.
+			String s2;//represent the power
+			//the following if will only accept a String that starts with the terms we have established (read ReadMe)
 			if(Character.isDigit(ps[i].charAt(0)) || ps[i].charAt(0)=='-' || ps[i].charAt(0)=='+') 	{
 				if(ps[i].contains("x")) {
-					if(ps[i].contains("*")) {
-						int j=ps[i].indexOf('*');
+					if(ps[i].contains("*")) {//in case there's '*'.
+						int j=ps[i].indexOf('*'); 
 						s1= ps[i].substring(0, j);
 						s2=ps[i].substring(j+3, ps[i].length());
 						co=Double.parseDouble(s1);
 						pow=(int) Double.parseDouble(s2);
 					}
-					else {
+					else {//if there isn't any '*'.
 						int j=ps[i].indexOf('x');
 						s1 = ps[i].substring(0, j);
 						if(j+2<ps[i].length()) {
@@ -80,18 +82,18 @@ public class Polynom implements Polynom_able{
 						}
 					}
 				}
-				else {
+				else {//if ther isn't any 'x'
 					co=Double.parseDouble(ps[i]);
 				}
-				Monom m = new Monom(co,pow);
+				Monom m = new Monom(co,pow);//creating the monom with co and pow that were set by the String.
 				Polynom.add(m);
 				i++;
 			}
-			else {
+			else {//if the String doesn't starts in the terms we have set.
 				break;
 			}
 		}
-		Polynom.sort(comp);
+		Polynom.sort(comp);//sorting 
 	}
 
 	/**
@@ -102,7 +104,7 @@ public class Polynom implements Polynom_able{
 	 * @return sum - the value of f(x).
 	 */
 	@Override
-	public double f(double x) {
+	public double f(double x) { // give the value of y for a specific x.
 		double sum=0;
 		Iterator<Monom> it = Polynom.iterator();
 		while(it.hasNext()) {
@@ -118,7 +120,7 @@ public class Polynom implements Polynom_able{
 	 * @param p1 The Polynom that is added.
 	 */
 	@Override
-	public void add(Polynom_able p1) {
+	public void add(Polynom_able p1) { // adding two polynoms, every monom in polynom one to its parallel in polynom two by the power level 
 		Iterator<Monom> it = p1.iteretor();
 		while(it.hasNext()) {
 			Monom m=it.next();
@@ -134,7 +136,7 @@ public class Polynom implements Polynom_able{
 	 * 
 	 */
 	@Override
-	public void add(Monom m1) {
+	public void add(Monom m1) { // add new monom to the polynom
 		boolean flag = false;
 		Iterator<Monom> it = Polynom.iterator();
 		if(m1.get_coefficient()!=0) {
@@ -160,7 +162,7 @@ public class Polynom implements Polynom_able{
 	 *  @param p1 The Polynom that is subtracted
 	 */
 	@Override
-	public void substract(Polynom_able p1) {
+	public void substract(Polynom_able p1) { // substract two polynoms, every monom in polynom one to its parallel in polynom two by the power level 
 		Monom minus = new Monom(-1,0);
 		Iterator<Monom> it = p1.iteretor();
 		while(it.hasNext()) {
@@ -181,7 +183,7 @@ public class Polynom implements Polynom_able{
 	 * @param p1 The Polynom that is multipied.
 	 */
 	@Override
-	public void multiply(Polynom_able p1) {
+	public void multiply(Polynom_able p1) { //Arithmetic multiply of two polynom
 		Polynom helper = new Polynom();
 		Iterator<Monom> itAble = p1.iteretor();
 		while(itAble.hasNext()) {
@@ -211,7 +213,7 @@ public class Polynom implements Polynom_able{
 	 * @param p1 - The Polynom that this.Polynom is being compared to
 	 */
 	@Override
-	public boolean equals(Polynom_able p1) {
+	public boolean equals(Polynom_able p1) { // check if two polynom are the same
 		Iterator<Monom> itAble = p1.iteretor();
 		Iterator<Monom> itPoly = Polynom.iterator();
 		while(itPoly.hasNext() && itAble.hasNext()) {
@@ -234,7 +236,7 @@ public class Polynom implements Polynom_able{
 	 * 
 	 */
 	@Override
-	public boolean isZero() {
+	public boolean isZero() { // checks if the polynom is the zero polynom (f(x)=0)
 		if (Polynom.isEmpty()) return true;
 
 		return false;
@@ -249,7 +251,7 @@ public class Polynom implements Polynom_able{
 	 * @param eps
 	 */
 	@Override
-	public double root(double x0, double x1, double eps) {
+	public double root(double x0, double x1, double eps) { // finds the roots of the function for a certain x0, x1 and the precision of Epsilon
 		double mid=0;
 		while((x1-x0)>eps) {
 			mid=(x0+x1)/2;
@@ -273,7 +275,7 @@ public class Polynom implements Polynom_able{
 	 * param ithelper - helper's iterator
 	 */
 	@Override
-	public Polynom_able derivative() {
+	public Polynom_able derivative() {  // give's the derivative of the Polynom.
 		Polynom helper = new Polynom();
 		Iterator<Monom> it = Polynom.iterator();
 		while(it.hasNext()) {
@@ -292,7 +294,7 @@ public class Polynom implements Polynom_able{
 	 * @param eps
 	 */
 	@Override
-	public double area(double x0, double x1, double eps) {
+	public double area(double x0, double x1, double eps) { // the value of the integral using rieman's method.
 		x0=x0+eps;
 		double sum=0;
 		while(x0<=x1) {
@@ -306,7 +308,7 @@ public class Polynom implements Polynom_able{
 	 * @return the Polynom's iterator.
 	 */
 	@Override
-	public Iterator<Monom> iteretor() {
+	public Iterator<Monom> iteretor() { 
 		Iterator<Monom> it = Polynom.iterator();
 		return it;
 	}
@@ -314,7 +316,7 @@ public class Polynom implements Polynom_able{
 	 * Sorting the Polynom's using the comperator.
 	 */
 
-	public void sort() {
+	public void sort() { // sorting the Polynom
 		this.Polynom.sort(comp); 
 	}
 	/**
@@ -322,7 +324,7 @@ public class Polynom implements Polynom_able{
 	 *  param polystring - concats the Polynom's.
 	 */
 	@Override
-	public String toString() {
+	public String toString() { // toString function
 		String polystring="";
 		Iterator<Monom> it = this.iteretor();
 		if(this.isZero())
@@ -342,7 +344,7 @@ public class Polynom implements Polynom_able{
 	/**
 	 * Clearing the Polynom.
 	 */
-	public void empty() {
+	public void empty() { // clearing the Polynom (making it the zero polynom).
 		Polynom.clear();
 	}
 }
