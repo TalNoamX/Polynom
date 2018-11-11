@@ -346,7 +346,5 @@ public class Polynom implements Polynom_able{
 		Polynom.clear();
 	}
 	
-	public void testing() {
-		
-	}
+
 }
