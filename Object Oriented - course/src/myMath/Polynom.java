@@ -345,8 +345,4 @@ public class Polynom implements Polynom_able{
 	public void empty() {
 		Polynom.clear();
 	}
-
-	public void testing() {
-
-	}
 }
