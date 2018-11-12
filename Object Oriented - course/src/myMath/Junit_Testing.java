@@ -9,6 +9,8 @@ import myMath.Monom;
 class Junit_Testing {
 
 	@Test
-	public void
+	public void PolyCopy(){
+		
+	}
 
 }
