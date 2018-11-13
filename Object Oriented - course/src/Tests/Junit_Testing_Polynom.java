@@ -1,8 +1,12 @@
-package myMath;
+package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import myMath.Monom;
+import myMath.Polynom;
+import myMath.Polynom_able;
 
 class Junit_Testing_Polynom {
 
