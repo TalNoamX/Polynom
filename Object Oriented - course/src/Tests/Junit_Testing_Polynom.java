@@ -54,10 +54,9 @@ class Junit_Testing_Polynom {
 	@Test
 	public void MultiplyTest(){
 		Polynom p1 = new Polynom ("1*x^1+1");
-		Polynom p2 = new Polynom ("1*x^1+1");
-		Polynom p3 = new Polynom ("1*x^2+2*x^1+1");
-		p1.multiply(p2);
-		assertTrue(p1.equals(p3));
+		Polynom p2 = new Polynom ("1*x^2+2*x^1+1");
+		p1.multiply(p1);
+		assertTrue(p1.equals(p2));
 	}
 	@Test
 	public void AddMonomTest() {
