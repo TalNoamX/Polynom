@@ -93,6 +93,7 @@ class Junit_Testing_Polynom {
 		assertTrue(p1.equals(pEqual));
 
 	}
+	@Test
 	public void isZeroTest() {
 		Polynom p = new Polynom("0");
 		assertTrue(p.isZero());
@@ -100,6 +101,7 @@ class Junit_Testing_Polynom {
 		p.add(m);
 		assertTrue(p.isZero());
 	}
+	@Test
 	public void derivativeTest() {
 		Polynom p = new Polynom("8x^4 + 7x^3 + 5x^2 + 3x^1 + 5");
 		Polynom Pderiv= new Polynom("32x^3+21x^2+10x^1+3");
