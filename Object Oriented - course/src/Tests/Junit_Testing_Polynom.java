@@ -60,7 +60,36 @@ class Junit_Testing_Polynom {
 	}
 	@Test
 	public void AddMonomTest() {
-		
+		Monom m = new Monom(2,2);
+		Polynom p = new Polynom("2*x^2+2*x^4");
+		Polynom p1 = new Polynom("4*x^2+2*x^4");
+		p.add(m);
+		assertTrue(p.equals(p1));
 	}
-	
+	@Test
+	public void addPolynomTest() {
+		Polynom p1 = new Polynom("2*x^1+3*x^3");
+		Polynom p2 = new Polynom("2*x^1+3*x^3");
+		Polynom pEqual = new Polynom("4*x^1+6*x^3");
+		p1.add(p2);
+		if(!p1.equals(pEqual))
+			fail("fail: something is wrong with the add Polynom function.");
+	}
+	@Test 
+	public void fTest() {
+		double x = 4;
+		double outCome = 36;
+		Polynom p = new Polynom("1*x^1+2*x^2");
+		assertEquals(outCome,p.f(x));
+	}
+	@Test 
+	public void substractTest() {
+		Monom m1 = new Monom(2,1);
+		Polynom p1 = new Polynom();
+		p1.add(m1);
+		Polynom p2 = new Polynom("2*x^1+3*x^3");
+		Polynom pEqual = new Polynom("3*x^3");
+		p2.substract(p1);
+		assertTrue(p2.equals(pEqual));
+	}
 }
