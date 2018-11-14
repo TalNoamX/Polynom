@@ -162,7 +162,7 @@ public class Polynom implements Polynom_able{
 	 *  @param p1 The Polynom that is subtracted
 	 */
 	@Override
-	public void substract(Polynom_able p1) { // substract two polynoms, every monom in polynom one to its parallel in polynom two by the power level 
+	public void substract(Polynom_able p1) {// substract two polynoms, every monom in polynom one to its parallel in polynom two by the power level 
 		Monom minus = new Monom(-1,0);
 		Iterator<Monom> it = p1.iteretor();
 		while(it.hasNext()) {
@@ -170,6 +170,7 @@ public class Polynom implements Polynom_able{
 			m.multiply(minus);
 			this.add(m);
 		}
+		
 	}
 
 	/**
