@@ -95,8 +95,7 @@ class Junit_Testing_Polynom {
 	}
 	@Test
 	public void isZeroTest() {
-		Polynom p = new Polynom("0");
-		assertTrue(p.isZero());
+		Polynom p = new Polynom();
 		Monom m = new Monom (0,0);
 		p.add(m);
 		assertTrue(p.isZero());
@@ -106,5 +105,19 @@ class Junit_Testing_Polynom {
 		Polynom p = new Polynom("8x^4 + 7x^3 + 5x^2 + 3x^1 + 5");
 		Polynom Pderiv= new Polynom("32x^3+21x^2+10x^1+3");
 		assertTrue(p.derivative().equals(Pderiv));
+	}
+	@Test
+	public void areaTest() {
+		Polynom p = new Polynom("5x^1+2");
+		int result = 265;
+		int area = (int)(p.area(1, 10, 0.001));
+		assertTrue(area==result);
+	}
+	@Test
+	public void rootTest() {
+		Polynom p = new Polynom("x^1+1");
+		int root=-1;
+		int result=(int)(p.root(-2, 5, 0.00001));
+		assertTrue(root==result);
 	}
 }
