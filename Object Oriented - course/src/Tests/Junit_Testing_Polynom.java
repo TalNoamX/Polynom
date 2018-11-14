@@ -30,6 +30,14 @@ class Junit_Testing_Polynom {
 		}
 	}
 	@Test
+	public void equalsTest() {
+		Polynom p = new Polynom("1*x^1");
+		Polynom pEqual = new Polynom("1*x^1");
+		assertTrue(p.equals(pEqual));
+	}
+	
+	
+	@Test
 	public void StringTest() {
 		Polynom p1 = new Polynom("5x^1");
 		Monom m = new Monom(5,1);
