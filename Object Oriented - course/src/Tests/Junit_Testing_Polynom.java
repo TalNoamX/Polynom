@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Iterator;
 
+import javax.swing.plaf.synth.SynthSpinnerUI;
+
 import org.junit.jupiter.api.Test;
 
 import myMath.Monom;
@@ -22,15 +24,10 @@ class Junit_Testing_Polynom {
 		Polynom p1 = new Polynom();
 		p1.add(m0); p1.add(m1); p1.add(m2);
 		Iterator<Monom> it = p1.iteretor();
-		int i = 0;
-		while(it.hasNext()) {
-			assertEquals(arr[i],it.next().get_coefficient());
-			i++;
-		}
-		i = 0;
-		while(it.hasNext()) {
-			assertEquals(arr2[i],it.next().get_power());
-			i++;
+		for(int i=0; it.hasNext(); i++) {
+			Monom m = it.next();
+			assertEquals(arr[i],m.get_coefficient());
+			assertEquals(arr2[i],m.get_power());
 		}
 	}
 	@Test
