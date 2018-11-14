@@ -109,9 +109,7 @@ class Junit_Testing_Polynom {
 	@Test
 	public void areaTest() {
 		Polynom p = new Polynom("5x^1+2");
-		int result = 265;
-		int area = (int)(p.area(1, 10, 0.001));
-		assertTrue(area==result);
+		assertTrue((int)(p.area(1, 10, 0.001))==265);
 	}
 	@Test
 	public void rootTest() {
