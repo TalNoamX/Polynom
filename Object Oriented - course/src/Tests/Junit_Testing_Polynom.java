@@ -87,4 +87,11 @@ class Junit_Testing_Polynom {
 		assertTrue(p1.equals(pEqual));
 		
 	}
+	public void isZeroTest() {
+		Polynom p = new Polynom("0");
+		assertTrue(p.isZero());
+		Monom m = new Monom (0,0);
+		p.add(m);
+		assertTrue(p.isZero());
+	}
 }
