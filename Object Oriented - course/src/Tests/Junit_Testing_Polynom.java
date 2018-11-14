@@ -4,11 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Iterator;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
-
 import org.junit.jupiter.api.Test;
 
 import myMath.Monom;
+
 import myMath.Polynom;
 
 class Junit_Testing_Polynom {
@@ -79,14 +78,14 @@ class Junit_Testing_Polynom {
 		Polynom p = new Polynom("1*x^1+2*x^2");
 		assertEquals(outCome,p.f(x));
 	}
-	@Test 
-	public void substractTest() {
-		Monom m1 = new Monom(2,1);
-		Polynom p1 = new Polynom();
-		p1.add(m1);
-		Polynom p2 = new Polynom("2*x^1+3*x^3");
-		Polynom pEqual = new Polynom("3*x^3");
-		p2.substract(p1);
-		assertTrue(p2.equals(pEqual));
-	}
+//	@Test 
+//	public void substractTest() {
+//		Monom m1 = new Monom(2,1);
+//		Polynom p1 = new Polynom();
+//		p1.add(m1);
+//		Polynom p2 = new Polynom("2*x^1+3*x^3");
+//		Polynom pEqual = new Polynom("3*x^3");
+//		p2.substract(p1);
+//		assertTrue(p2.equals(pEqual));
+//	}
 }
