@@ -12,6 +12,7 @@ import de.erichseifert.gral.ui.InteractivePanel;
 @SuppressWarnings("serial")
 public class Graph extends JFrame {
 	//private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unchecked")
 	public Graph() {
 		double x0 =-2;
 		double x1 =6;
@@ -19,7 +20,6 @@ public class Graph extends JFrame {
 		setSize(800, 600);
 		// Insert rest of the code here
 		Polynom p = new Polynom("0.2*x^4 + -1.5*x^3 + 3*x^2 + -1*x^1+ -5");
-		@SuppressWarnings("unchecked")
 		DataTable data = new DataTable(Double.class,Double.class);
 		for (double x = x0; x <= x1; x+=0.25) {
 			double y = p.f(x);
@@ -43,16 +43,16 @@ public class Graph extends JFrame {
 	}
 	public double extrema(Polynom p1,double x0,double x1,double eps,DataTable data) {
 		Polynom pd = new Polynom(p1.derivative().toString());
-		double x=0;
-		double y=0; 
-		while((x1-x0)>eps) {
-				x = pd.root(x0, x1, eps);
-				y = p1.f(x);
-				data.add(x,y);
-			if(Math.abs(x1-x)<Math.abs(x0-x)) x1=x-eps*10;
-			else x0=x+eps*10;
+		for(double i=x0;i<=x1; i+=eps){
+			if(pd.f(i)*pd.f(i+eps)<0) {
+				data.add(i,p1.f(i));
+			}
 		}
 		return 0;
+	}
+	public double area2(Polynom p,double x0, double x1, double eps) {
+		
+		return p.area(x0, x1, eps);
 	}
 	public static void main(String[] args) {
 		Graph frame = new Graph();
