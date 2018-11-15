@@ -170,7 +170,7 @@ public class Polynom implements Polynom_able{
 			m.multiply(minus);
 			this.add(m);
 		}
-		
+
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class Polynom implements Polynom_able{
 			else if(this.f(x0)*this.f(mid)>0) x0=mid;
 			else x1=mid;
 		}
-		return mid;
+			return mid;
 	}
 	/**
 	 * @return a Polynom that is a copy of another Polynom
