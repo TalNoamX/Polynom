@@ -10,9 +10,9 @@ import de.erichseifert.gral.plots.lines.LineRenderer;
 import de.erichseifert.gral.ui.InteractivePanel;
 
 @SuppressWarnings("serial")
-public class LinePlotTest extends JFrame {
+public class Graph extends JFrame {
 	//private static final long serialVersionUID = 1L;
-	public LinePlotTest() {
+	public Graph() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800, 600);
 		// Insert rest of the code here
@@ -27,12 +27,16 @@ public class LinePlotTest extends JFrame {
 		getContentPane().add(new InteractivePanel(plot));
 		LineRenderer lines = new DefaultLineRenderer2D();
 		plot.setLineRenderers(data, lines);
-		Color color = new Color(0.0f, 0.3f, 1.0f);
+		Color color = new Color(1f, 0.3f, 1.0f);
 		plot.getPointRenderers(data).get(0).setColor(color);
 		plot.getLineRenderers(data).get(0).setColor(color);
 	}
+	public double extrema(Polynom p1) {
+	
+		return 0;
+	}
 	public static void main(String[] args) {
-		LinePlotTest frame = new LinePlotTest();
+		Graph frame = new Graph();
 		frame.setVisible(true);
 	}
 }

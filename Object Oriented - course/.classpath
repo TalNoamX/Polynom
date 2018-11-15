@@ -6,11 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/טל/Downloads/gral-core-0.11.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/Oranit/Documents/לימודים/שנה ב/מונחה עצמים/מטלה 1/gral-core-0.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

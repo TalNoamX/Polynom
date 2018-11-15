@@ -256,7 +256,8 @@ public class Polynom implements Polynom_able{
 		double mid=0;
 		while((x1-x0)>eps) {
 			mid=(x0+x1)/2;
-			if(this.f(x0)*this.f(mid)>0) x0=mid;
+			if(this.f(x0)*this.f(mid)==0) return mid;
+			else if(this.f(x0)*this.f(mid)>0) x0=mid;
 			else x1=mid;
 		}
 		return mid;
