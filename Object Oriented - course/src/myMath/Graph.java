@@ -41,14 +41,13 @@ public class Graph extends JFrame {
 		plot.getPointRenderers(dataExt).get(0).setColor(colorExt);
 
 	}
-	public double extrema(Polynom p1,double x0,double x1,double eps,DataTable data) {
+	public void extrema(Polynom p1,double x0,double x1,double eps,DataTable data) {
 		Polynom pd = new Polynom(p1.derivative().toString());
 		for(double i=x0;i<=x1; i+=eps){
 			if(pd.f(i)*pd.f(i+eps)<0) {
 				data.add(i,p1.f(i));
 			}
 		}
-		return 0;
 	}
 	public double area2(Polynom p,double x0, double x1, double eps) {
 		
