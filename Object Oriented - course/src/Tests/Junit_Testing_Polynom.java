@@ -7,7 +7,6 @@ import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
 import myMath.Monom;
-
 import myMath.Polynom;
 
 class Junit_Testing_Polynom {
