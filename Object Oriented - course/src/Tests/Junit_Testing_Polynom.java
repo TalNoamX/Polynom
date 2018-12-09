@@ -112,9 +112,9 @@ class Junit_Testing_Polynom {
 	}
 	@Test
 	public void rootTest() {
-		Polynom p = new Polynom("x^1+1");
+		Polynom p = new Polynom("1x^1+1");
 		int root=-1;
-		int result=(int)(p.root(-2, 5, 0.00001));
+		int result=(int)(p.root(-2, 5, 0.0000001));
 		assertTrue(root==result);
 	}
 }

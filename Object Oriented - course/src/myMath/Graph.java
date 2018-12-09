@@ -15,13 +15,13 @@ public class Graph extends JFrame {
 	public Graph() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800, 600);
-		Polynom p = new Polynom("0.2*x^4 + -1.5*x^3 + 3*x^2 + -1*x^1+ -5");//will work with every Polynom
+		Polynom p = new Polynom("20.0x^1 + (-28.0)x^2  + (-7.0)x^3  + 26.0x^4 + (-13.0)x^5  + 2.0x^6");//will work with every Polynom
 		DataTable data = new DataTable(Double.class,Double.class);
 		DataTable dataExt = new DataTable(Double.class,Double.class);//data table for the extremas only
 		
-		PolynomGraph(p, -2, 6, data);//need to insert range
+		PolynomGraph(p, -2, 4, data);//need to insert range
 		
-		extrema(p, -2, 6, 0.01, dataExt);//need to insert range.
+		extrema(p, -2, 4, 0.001, dataExt);//need to insert range.
 		
 		XYPlot plot = new XYPlot(data);
 		getContentPane().add(new InteractivePanel(plot));
@@ -46,6 +46,7 @@ public class Graph extends JFrame {
 		for(double i=x0;i<=x1; i+=eps){
 			if(pd.f(i)*pd.f(i+eps)<0) {//if the sign of f(i) and f(i+eps) in the derivative is different, there's an extrema there.
 				data.add(i,p1.f(i));
+				System.out.println("x" + i + "y" + p1.f(i));
 			}
 		}
 	}
